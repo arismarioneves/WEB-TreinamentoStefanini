@@ -45,7 +45,6 @@ public class Perfil implements Serializable {
 //    @ManyToMany(mappedBy = "perfils")
 //    private Set<Pessoa> pessoas;
 
-
     public Perfil() {
     }
 

@@ -21,8 +21,6 @@ import java.util.Optional;
  */
 public abstract class GenericDao<T, I extends Serializable> implements IGenericService<T, I>{
 
-
-
 	@PersistenceContext(unitName="jpa")
 	protected EntityManager entityManager;
 
@@ -47,6 +45,7 @@ public abstract class GenericDao<T, I extends Serializable> implements IGenericS
 		entityManager.persist(entity);
 		return entity;
 	}
+	
 	/**
 	 * @valid serve para validar a entidade antes de entrar no metodo, olhar o conceito de BEAN VALIDATION
 	 * Sempre que for executar uma DML é necessario abrir uma transacao e fecha-la, pois senão a operacao não será comitada
@@ -55,7 +54,6 @@ public abstract class GenericDao<T, I extends Serializable> implements IGenericS
 		entityManager.merge(entity);
 		return entity;
 	}
-
 	
 	/**
 	 * Sempre que for executar uma DML é necessario abrir uma transacao e fecha-la, pois senão a operacao não será comitada
@@ -74,14 +72,13 @@ public abstract class GenericDao<T, I extends Serializable> implements IGenericS
 		query.from(classe);
 		return Optional.of(getEntityManager().createQuery(query).getResultList());
 	}
+	
 	/**
 	 * Não precisa de Transacao para efetuar DQL
 	 */
 	public Optional<T> encontrar(I id) {
 		return Optional.ofNullable(getEntityManager().find(classe, id));
 	}
-	
-	
 
 	/**
 	 * Obter o EntityManager
@@ -90,7 +87,5 @@ public abstract class GenericDao<T, I extends Serializable> implements IGenericS
 	public EntityManager getEntityManager() {
 		return entityManager;
 	}
-	
-	
 	
 }

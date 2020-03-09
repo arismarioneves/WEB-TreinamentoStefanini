@@ -158,22 +158,22 @@
                         <password>sa</password>
                     </security>
                 </datasource>
+                <datasource jndi-name="java:jboss/datasources/PostgresDS" pool-name="PostgresDS" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:postgresql://localhost:5432/MData</connection-url>
+                    <driver>postgresql</driver>
+                    <security>
+                        <user-name>postgres</user-name>
+                        <password>root</password>
+                    </security>
+                </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
                     </driver>
-					<driver name="postgresql" module="org.postgresql">
-						<driver-class>org.postgresql.Driver</driver-class>
-					</driver>
+                    <driver name="postgresql" module="org.postgresql">
+                        <driver-class>org.postgresql.Driver</driver-class>
+                    </driver>
                 </drivers>
-				<datasource jndi-name="java:jboss/datasources/PostgresDS" pool-name="PostgresDS" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:postgresql://localhost:5432/teste</connection-url>
-                    <driver>postgresql</driver>
-                    <security>
-                        <user-name>postgres</user-name>
-                        <password>mysecretpassword</password>
-                    </security>
-                </datasource>
             </datasources>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:deployment-scanner:2.0">

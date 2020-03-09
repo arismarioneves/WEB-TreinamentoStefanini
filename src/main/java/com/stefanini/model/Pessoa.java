@@ -159,8 +159,6 @@ public class Pessoa implements Serializable{
 		this.dataNascimento = dataNascimento;
 	}
 
-	
-
 	public String getEmail() {
 		return email;
 	}

@@ -7,8 +7,6 @@ import java.io.Serializable;
 @Table(name = "tb_endereco")
 public class Endereco implements Serializable {
 
-
-
     /**
      * Serializacao da Classe
      */
@@ -48,7 +46,6 @@ public class Endereco implements Serializable {
 //    @ManyToOne
 //    @JoinColumn(name = "co_seq_pessoa", referencedColumnName = "co_seq_pessoa", nullable = false)
 //    private Pessoa pessoa;
-
 
     public Endereco() {
     }
