@@ -21,18 +21,17 @@ import com.stefanini.servico.PessoaServico;
 public class TesteResource {
 
 	@Inject
-	private PessoaServico pessoaServico;
+	private PessoaServico pessoaServicoTeste;
 
 	@GET
 	public Response obterListaPessoa() {
-		return Response.ok(pessoaServico.getList().get()).build();
+		return Response.ok(pessoaServicoTeste.getList().get()).build();
 	}
 
-	@POST
-	public Response obterListaPessoa(@Valid Pessoa pessoa) {
-		return Response.ok(pessoaServico.salvar(pessoa)).build();
-	}
-	
+	//@POST
+	//public Response obterListaPessoa(@Valid Pessoa pessoa) {
+		//return Response.ok(pessoaServicoTeste.salvar(pessoa)).build();
+	//}
 
 	@GET
 	@Path("{id}")

@@ -9,6 +9,7 @@ public interface IGenericService<T, I extends Serializable> {
 
 	/**
 	 * Salvar uma entidade
+	 * 
 	 * @param entity
 	 * @return
 	 */
@@ -16,25 +17,29 @@ public interface IGenericService<T, I extends Serializable> {
 
 	/**
 	 * Atualizar uma entidade
+	 * 
 	 * @param entity
 	 * @return
 	 */
 	T atualizar(@Valid T entity);
 
 	/**
-	 *  Remover uma entidade
+	 * Remover uma entidade
+	 * 
 	 * @param id
 	 */
 	void remover(@Valid I id);
 
 	/**
 	 * Obter uma Lista
+	 * 
 	 * @return
 	 */
 	Optional<List<T>> getList();
 
 	/**
 	 * Encontar um registro pelo id
+	 * 
 	 * @param id
 	 * @return
 	 */

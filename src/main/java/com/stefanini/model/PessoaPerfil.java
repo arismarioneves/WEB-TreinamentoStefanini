@@ -4,47 +4,51 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tb_pessoa_perfil")
+@Table(name = "TB_PESSOA_PERFIL")
 public class PessoaPerfil implements Serializable {
 
+	/**
+	 * Serializacao da Classe
+	 */
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(name = "co_seq_pessoal_perfil")
-    private Long id;
+	@Id
+	@Column(name = "CO_SEQ_PESSOAL_PERFIL")
+	private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "co_seq_perfil", referencedColumnName = "co_seq_perfil", nullable = false)
-    private Perfil perfil;
-    @ManyToOne
-    @JoinColumn(name = "co_seq_pessoa", referencedColumnName = "co_seq_pessoa", nullable = false)
-    private Pessoa pessoa;
+	@ManyToOne
+	@JoinColumn(name = "CO_SEQ_PERFIL", referencedColumnName = "co_seq_perfil", nullable = false)
+	private Perfil perfil;
+	@ManyToOne
+	@JoinColumn(name = "CO_SEQ_PESSOA", referencedColumnName = "co_seq_pessoa", nullable = false)
+	private Pessoa pessoa;
 
-    public PessoaPerfil() {
+	public PessoaPerfil() {
 		// TODO Auto-generated constructor stub
 	}
 
-    public PessoaPerfil(Perfil perfil, Pessoa pessoa) {
-        this.perfil = perfil;
-        this.pessoa = pessoa;
-    }
+	public PessoaPerfil(Perfil perfil, Pessoa pessoa) {
+		this.perfil = perfil;
+		this.pessoa = pessoa;
+	}
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
 
-    public Perfil getPerfil() {
-        return perfil;
-    }
+	public Perfil getPerfil() {
+		return perfil;
+	}
 
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

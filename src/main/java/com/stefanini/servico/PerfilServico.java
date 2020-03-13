@@ -1,9 +1,9 @@
 package com.stefanini.servico;
 
-import com.stefanini.dao.EnderecoDao;
-import com.stefanini.dto.EnderecoDto;
-import com.stefanini.model.Endereco;
-import com.stefanini.parsers.EnderecoParserDTO;
+import com.stefanini.dao.PerfilDao;
+import com.stefanini.dto.PerfilDto;
+import com.stefanini.model.Perfil;
+import com.stefanini.parsers.PerfilParserDTO;
 import com.stefanini.util.IGenericService;
 
 import javax.ejb.TransactionAttribute;
@@ -16,23 +16,23 @@ import java.util.Optional;
 /**
  * Classe de servico, as regras de negocio devem estar nessa classe
  */
-public class EnderecoServico implements IGenericService<Endereco, Long> {
+public class PerfilServico implements IGenericService<Perfil, Long> {
 
 	@Inject
-	private EnderecoDao dao;
+	private PerfilDao dao;
 
 	@Inject
-	private EnderecoParserDTO parser;
+	private PerfilParserDTO parser;
 
 	// @Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public Endereco salvar(@Valid Endereco entity) {
+	public Perfil salvar(@Valid Perfil entity) {
 		return dao.salvar(entity);
 	}
 
 	// @Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public Endereco atualizar(@Valid Endereco entity) {
+	public Perfil atualizar(@Valid Perfil entity) {
 		return dao.atualizar(entity);
 	}
 
@@ -43,18 +43,18 @@ public class EnderecoServico implements IGenericService<Endereco, Long> {
 	}
 
 	@Override
-	public Optional<List<Endereco>> getList() {
+	public Optional<List<Perfil>> getList() {
 		// return Optional.empty();
 		return dao.getList();
 	}
 
 	@Override
-	public Optional<Endereco> encontrar(Long id) {
+	public Optional<Perfil> encontrar(Long id) {
 		return dao.encontrar(id);
 	}
 
-	public Optional<List<Endereco>> getListParametros(@Valid EnderecoDto endereco) {
-		List<EnderecoDto> enderecos = parser.toDtoList(dao.getListParametros(endereco).get());
-		return Optional.of(parser.toEntityList(enderecos));
+	public Optional<List<Perfil>> getListParametros(@Valid PerfilDto perfil) {
+		List<PerfilDto> perfils = parser.toDtoList(dao.getListParametros(perfil).get());
+		return Optional.of(parser.toEntityList(perfils));
 	}
 }

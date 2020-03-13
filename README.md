@@ -2,7 +2,7 @@
 
 Nessa primeira fase do Treinamento serão abordados os assuntos relacionadosa a:
 
-Slides disponiveis em [Slides](https://github.com/Jpmmdf/projeto-web-base/blob/master/src/main/resources/Treinamento-Parte2.pptx)
+Slides disponiveis em [Slides](https://github.com/Jpmmdf/projeto-web-base/blob/master/src/main/resources/Treinamento.pptx)
 * Ferramentas para Desenvolvimento
 * GIT
    * Clonar Projeto
@@ -23,13 +23,3 @@ Slides disponiveis em [Slides](https://github.com/Jpmmdf/projeto-web-base/blob/m
 * [ECLIPSE](https://www.eclipse.org/downloads/) - Ferramenta para o Desenvolvimento 
 * [PGADMIN](https://www.pgadmin.org/download/) - (Opcional) Ferramenta para o Postgres
 * [SOURCETREE](https://www.sourcetreeapp.com) - (Opcional) Ferramenta para o GIT
-
-## Uso
-
-### Importando o projeto no Eclipse
-
-Após a configuração do ambiente, clonar esse projeto e importa-lo como Maven Project no Eclipse
-
-
-# Projeto WebApp base para 2 Parte do Treinamento
- 

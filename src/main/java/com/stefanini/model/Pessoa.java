@@ -21,28 +21,18 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-/**
- * @author joaopedromilhome
- *
- */
 @Entity
 @Table(name = "TB_PESSOA")
-@NamedQueries(value = {
-		@NamedQuery(name = "Pessoa.findByNome",
-				query = "select p from Pessoa p where p.nome=:nome"),
-		@NamedQuery(name = "Pessoa.findPerfilsAndEnderecosByNome",
-				query = "select p from Pessoa p JOIN FETCH p.perfils JOIN FETCH p.enderecos where p.nome=:nome")
-})
-public class Pessoa implements Serializable{
+@NamedQueries(value = { @NamedQuery(name = "Pessoa.findByNome", query = "select p from Pessoa p where p.nome=:nome"),
+		@NamedQuery(name = "Pessoa.findPerfilsAndEnderecosByNome", query = "select p from Pessoa p JOIN FETCH p.perfils JOIN FETCH p.enderecos where p.nome=:nome") })
+public class Pessoa implements Serializable {
 
-	
 	/**
 	 * Serializacao da Classe
 	 */
 	private static final long serialVersionUID = 1L;
+
 	/**
 	 * ID da Tabela
 	 */
@@ -50,25 +40,28 @@ public class Pessoa implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CO_SEQ_PESSOA")
 	private Long id;
+
 	/**
 	 * Nome da pessoa
 	 */
 	@NotNull
 	@Column(name = "NO_NOME")
 	private String nome;
-	
+
 	/**
 	 * Email da Pessoa
 	 */
 	@NotNull
 	@Column(name = "DS_EMAIL")
 	private String email;
+
 	/**
-	 * Data de Nascimento 
+	 * Data de Nascimento
 	 */
 	@NotNull
 	@Column(name = "DT_NASCIMENTO")
-	private LocalDate dataNascimento; 
+	private LocalDate dataNascimento;
+
 	/**
 	 * Situacao da Pessoa
 	 */
@@ -81,26 +74,23 @@ public class Pessoa implements Serializable{
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CO_SEQ_PESSOA",referencedColumnName = "CO_SEQ_PESSOA")
+	@JoinColumn(name = "CO_SEQ_PESSOA", referencedColumnName = "CO_SEQ_PESSOA")
 	private Set<Endereco> enderecos;
 
 	/**
 	 * Mapeamento de Perfis Unidirecional
 	 */
 	@JsonIgnore
-	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinTable(
-			name = "TB_PESSOA_PERFIL",
-			joinColumns = {@JoinColumn(name = "CO_SEQ_PESSOA")},
-			inverseJoinColumns = {@JoinColumn(name = "CO_SEQ_PERFIL")}
-	)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "TB_PESSOA_PERFIL", joinColumns = { @JoinColumn(name = "CO_SEQ_PESSOA") }, inverseJoinColumns = {
+			@JoinColumn(name = "CO_SEQ_PERFIL") })
 	private Set<Perfil> perfils;
+
 	/**
 	 * Metodo construtor da classe
 	 */
 	public Pessoa() {
 	}
-
 
 	public Set<Perfil> getPerfils() {
 		return perfils;
@@ -112,19 +102,20 @@ public class Pessoa implements Serializable{
 
 	/**
 	 * Construtor da Classe, Obrigando receber todos os parametros
+	 * 
 	 * @param nome
 	 * @param email
 	 * @param dataNascimento
 	 * @param situacao
 	 */
-	public Pessoa(@NotNull String nome, @NotNull String email, @NotNull LocalDate dataNascimento,@NotNull Boolean situacao) {
+	public Pessoa(@NotNull String nome, @NotNull String email, @NotNull LocalDate dataNascimento,
+			@NotNull Boolean situacao) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.dataNascimento = dataNascimento;
 		this.situacao = situacao;
 	}
-
 
 	public Set<Endereco> getEnderecos() {
 		return enderecos;
@@ -133,7 +124,6 @@ public class Pessoa implements Serializable{
 	public void setEnderecos(Set<Endereco> enderecos) {
 		this.enderecos = enderecos;
 	}
-
 
 	public Long getId() {
 		return id;
