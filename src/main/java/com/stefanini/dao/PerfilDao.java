@@ -31,32 +31,32 @@ public class PerfilDao extends GenericDao<Perfil, Long> {
 		CriteriaQuery<Perfil> query = criteriaBuilder.createQuery(Perfil.class);
 		Root<Perfil> root = query.from(Perfil.class);
 
-		Path<Long> ufPath = root.<Long>get("id");
-		Path<String> cepPath = root.<String>get("nome");
-		Path<String> bairroPath = root.<String>get("descricao");
-		Path<LocalDate> localidadePath = root.<LocalDate>get("dataHoraInclusao");
-		Path<LocalDate> complementoPath = root.<LocalDate>get("dataHoraAlteracao");
+		Path<Long> idPath = root.<Long>get("id");
+		Path<String> nomePath = root.<String>get("nome");
+		Path<String> descricaoPath = root.<String>get("descricao");
+		Path<LocalDate> dataHoraInclusaoPath = root.<LocalDate>get("dataHoraInclusao");
+		Path<LocalDate> dataHoraAlteracaoPath = root.<LocalDate>get("dataHoraAlteracao");
 
 		List<Predicate> predicates = new ArrayList<>();
 
 		if (dto.getId() != null) {
-			Predicate idIgual = criteriaBuilder.equal(ufPath, dto.getId());
+			Predicate idIgual = criteriaBuilder.equal(idPath, dto.getId());
 			predicates.add(idIgual);
 		}
 		if (dto.getNome() != null) {
-			Predicate nomeIgual = criteriaBuilder.equal(cepPath, dto.getNome());
+			Predicate nomeIgual = criteriaBuilder.equal(nomePath, dto.getNome());
 			predicates.add(nomeIgual);
 		}
 		if (dto.getDescricao() != null) {
-			Predicate descricaoIgual = criteriaBuilder.equal(bairroPath, dto.getDescricao());
+			Predicate descricaoIgual = criteriaBuilder.equal(descricaoPath, dto.getDescricao());
 			predicates.add(descricaoIgual);
 		}
 		if (dto.getDataHoraInclusao() != null) {
-			Predicate dataInclusaoIgual = criteriaBuilder.equal(localidadePath, dto.getDataHoraInclusao());
+			Predicate dataInclusaoIgual = criteriaBuilder.equal(dataHoraInclusaoPath, dto.getDataHoraInclusao());
 			predicates.add(dataInclusaoIgual);
 		}
 		if (dto.getDataHoraAlteracao() != null) {
-			Predicate dataHoraAlteracao = criteriaBuilder.equal(complementoPath, dto.getDataHoraInclusao());
+			Predicate dataHoraAlteracao = criteriaBuilder.equal(dataHoraAlteracaoPath, dto.getDataHoraInclusao());
 			predicates.add(dataHoraAlteracao);
 		}
 

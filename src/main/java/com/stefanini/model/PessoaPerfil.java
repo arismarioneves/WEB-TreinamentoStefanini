@@ -17,10 +17,10 @@ public class PessoaPerfil implements Serializable {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "CO_SEQ_PERFIL", referencedColumnName = "co_seq_perfil", nullable = false)
+	@JoinColumn(name = "CO_SEQ_PERFIL", referencedColumnName = "CO_SEQ_PERFIL", nullable = false)
 	private Perfil perfil;
 	@ManyToOne
-	@JoinColumn(name = "CO_SEQ_PESSOA", referencedColumnName = "co_seq_pessoa", nullable = false)
+	@JoinColumn(name = "CO_SEQ_PESSOA", referencedColumnName = "CO_SEQ_PESSOA", nullable = false)
 	private Pessoa pessoa;
 
 	public PessoaPerfil() {
