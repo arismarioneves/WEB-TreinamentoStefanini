@@ -1,4 +1,4 @@
-# Treinamento Stefanini
+# WEB - Treinamento Stefanini
 
 Nessa primeira fase do Treinamento serão abordados os assuntos relacionadosa a:
 
